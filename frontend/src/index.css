@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-card: #1a2235;
+  --border: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --critical: #ef4444;
+  --high: #f97316;
+  --medium: #eab308;
+  --low: #22c55e;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* Pulse animation for critical items */
+@keyframes pulse-critical {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.pulse-critical {
+  animation: pulse-critical 1.5s ease-in-out infinite;
+}
+
+/* Agent running animation */
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.agent-running {
+  animation: spin 1s linear infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card glow effect */
+.card-critical {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.3) !important;
+}
+
+.card-running {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.3) !important;
+}
